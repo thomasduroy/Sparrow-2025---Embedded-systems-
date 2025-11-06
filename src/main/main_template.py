@@ -33,7 +33,7 @@ BUZZER_ENABLE = True
 
 # buzzer for the start of the initialization
 # TO DO
-# Le buzzer shall buzz 1s à the frequency of 800Hz.
+# Le buzzer shall buzz 1 time at 800Hz.
 
 
 """loop"""
@@ -80,11 +80,11 @@ if __name__ == '__main__':
     
     # buzzer for the end of the initialization
     # TO DO
-    # buzz 0.2s at the frequency of 600Hz
+    # 3 bips separated by 0.2 seconds at 800Hz
     
     # buzzer until launch
     # TO DO
-    # buzz at 1000Hz every second
+    # 1 bip every 0.5 seconds at 1000Hz
     
     # main loop
     while landed == 0:
@@ -118,15 +118,15 @@ if __name__ == '__main__':
         print('\r\nLancé = %.1f , Parachute = %.1f\r\n'%(launched, parachute))
         
         """Engine"""
-        # if the rocket detects a strong acceleration (more than 40m.s^(-2) in any direction), it considers it is being launched and the timer starts
+        # if the rocket detects a strong acceleration (more than 15m.s^(-2) in any direction), it considers it is being launched and the timer starts
         # TO DO
-        # if (launched == ...) and (abs(ax) > 40 or ...):
+        # if (launched == ...) and (abs(ax) > 15 or ...):
         #    launched = ...
         #    start_time = ...
             
             # flight buzzer
             # TO DO
-            # buzz every second at 1500Hz
+            # 1 bip per second at 1500Hz
             
         if launched == 1:
             
@@ -135,27 +135,31 @@ if __name__ == '__main__':
             # execution_time = temps_courant - start_time
             
             # the parachute deployment happens 7s after launch max
+            
             # TO DO
             #if execution_time > ... and parachute == ...:
-            #   parachute = ...
-            # open parachute compartment
-            # TO DO
-               
-               # buzzer for the parachute deployment
-               # TO DO
-               # 2000Hz for 0.5s
+                # parachute = ...
+                # open parachute compartment
+                
+                # buzzer for the parachute deployment
+                # TO DO
+                # 1 bip every 2 seconds at 2000Hz
                
             # if apogee detected between 5s and 7s, deploy parachute 
             # TO DO
             # if execution_time > ... and parachute == ...:
             
-            # TO DO
-            # You shall detect a decrease in the altitude 5 times consecutively to consider that the rocket is going down and that the parachute shall be deployed.
-            # If the altitude increases before decreasing 5 times consecutively, you have to reset the counter.
-                    
+                # TO DO
+                # You shall detect a decrease in the altitude 5 times consecutively to consider that the rocket is going down and that the parachute shall be deployed.
+                # If the altitude increases before decreasing 5 times consecutively, you have to reset the counter.
+
+                # if the rocket is actually going down :
+                    # parachute = ...
+                    # open parachute compartment
+            
                     #buzzer for the parachute deployment
                     # TO DO
-                    # 2000Hz for 0.5s
+                    # 1 bip every 2 seconds at 2000Hz
 
             # Once the parachute has been deployed, landing is detected with 10 consecutive altitudes close of less than a meter to each other    
             if parachute == 1:
@@ -173,7 +177,8 @@ if __name__ == '__main__':
                     break
 
             # write the data in the file
-            # do not forget to flush the file
+            # /!\ IMPORTANT /!\
+            # do not forget to flush the file if you don't want to loose your data
             # TO DO   
             #file.write(str(execution_time) + "," + str(PRESS_DATA) + "," + ... + "\n")
     
